@@ -204,9 +204,9 @@ def predict_genre(index):
     
     anime_genre_pred = [c for c in anime_genre_pred if "Not" not in c]
     
-    return anime_genre_pred
+    return anime_genre_pred, score;
 # create separate list for predicted genres and actual genres of anime
-anime_index = get_index(fav_anime)
+anime_index, score = get_index(fav_anime)
 predicted_genres_list = predict_genre(anime_index)
 actual_genres_list = df.iloc[anime_index,13]
 actual_genres = actual_genres_list[0]
