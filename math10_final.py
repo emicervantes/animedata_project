@@ -193,13 +193,14 @@ X = df2[["is_Mondays","is_Tuesdays","is_Wednesdays","is_Thursdays","is_Fridays",
 def predict_genre(index):
     
     anime_genre_pred = []
-
+    score = 0
     for i in genres_list:
         y = df2["Genres"].map(lambda genres_list: i if i in genres_list else "Not " + i)
         clf = LogisticRegression()
         clf.fit(X,y)
         pred = clf.predict(X)
         anime_genre_pred.append(pred[index])
+        score = score + clf.score(X, y)
     
     anime_genre_pred = [c for c in anime_genre_pred if "Not" not in c]
     
@@ -209,6 +210,7 @@ anime_index = get_index(fav_anime)
 predicted_genres_list = predict_genre(anime_index)
 actual_genres_list = df.iloc[anime_index,13]
 actual_genres = actual_genres_list[0]
+score_avg = score/len(genres_list)
 for i in range(1,len(actual_genres_list)):
     actual_genres = actual_genres + ", " +  actual_genres_list[i]
 # print both list of genres on Streamlit
@@ -229,6 +231,7 @@ for i in predicted_genres_list:
 
 st.markdown("**_Actual genres:_** " +  actual_genres)
 st.write("Computer guessed " + str(count) + "/" + str(len(actual_genres_list)) + " genres!")
+st.write("Model accuracy score: " + score_avg)
 st.markdown("_______")
 
 ### anime recommendation using sklearn 
