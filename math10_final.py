@@ -228,6 +228,8 @@ for i in predicted_genres_list:
 
 st.markdown("**_Actual genres:_** " +  actual_genres)
 st.write("Computer guessed " + str(count) + "/" + str(len(actual_genres_list)) + " genres!")
+st.write()
+st.write("In conclusion, the model may have a low probablity of preciously predicting the genres of anime so it does not seem to show a strong correleation between the genres and our predictors (time it was aired and its score). Yet, this issue may be due to the fact that we are using a small dataset. It only consists of less than 400 rows. If there are more anime in our data, we would get a better accuracy and a better model.")
 st.markdown("_______")
 
 ### anime recommendation using sklearn 
