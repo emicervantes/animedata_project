@@ -1,6 +1,6 @@
 # Anime Genre Prediction and Recommendation Engine
 
-
+![alt text](https://github.com/emicervantes/animedata_project/blob/main/background.jpeg?raw=true)
 
 Link: https://emicervantes-animedata-project-math10-final-lt74i1.streamlit.app/
 
